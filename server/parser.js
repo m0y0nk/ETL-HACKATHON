@@ -25,7 +25,13 @@ export async function parseFileContent(content, mimetype) {
     // require a library like tesseract.js
     const data = await pdf(content);
     textContent = data.text;
-  }
+  } 
+  else 
+  { 
+    // For other mimetypes (txt, md ) we assume content is already text 
+
+    textContent= content.toString('utf-8' ) 
+  } 
 
   // 2. Initialize the parsing context
   // Each processor will modify this object.
