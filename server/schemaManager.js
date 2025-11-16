@@ -1,6 +1,6 @@
 // schemaManager.js
 import { getDb } from './src/db/mongoClient.js';
-import { diff } from 'deep-diff'; // A library to compare objects
+// import { diff } from 'deep-diff'; // A library to compare objects
 
 const SCHEMA_COLLECTION = '_schemas';
 

@@ -1,18 +1,20 @@
 import { MongoClient } from 'mongodb';
 
 // Your MongoDB connection string
-// It will automatically use the DBURL from your .env file
+// It will automatically use the DBURL from your .env file 
+
+let db ; 
 
 async function connectToDb() {
   try { 
-    const uri = process.env.DBURL || "mongodb://localhost:27017";
+    const uri = process.env.DBURL || "mongodb://localhost:27017"; 
+    console.log(uri ) 
     const dbName = "etlPipelineDb"; // You can name your database
 
     const client = new MongoClient(uri);
 
-    let db; // This will hold the database connectio
     console.log(uri) 
-    await client.connect();
+    await client.connect(); 
     db = client.db(dbName);
     console.log(`Successfully connected to MongoDB at ${uri}`);
   } catch (error) {
@@ -33,4 +35,4 @@ function getDb() {
   return db;
 }
 
-export { connectToDb, getDb };
+export { connectToDb, getDb }; 
